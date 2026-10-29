@@ -1,0 +1,18 @@
+{
+  "name": "gae",
+  "one_liner": "Gamify Any Environment. A Rust + Bevy engine kit and agent playbook that turns any work domain (blue team, red team, programming, ops) into a live, GPU-rendered constellation like Agent Globe.",
+  "blueprint": "desktop-app",
+  "version": "0.1.0",
+  "check": ["lint", "typecheck", "test", "build", "audit"],
+  "stopOnFail": true,
+  "commands": {
+    "install": "cargo fetch",
+    "lint": "cargo fmt --check && cargo clippy --all-targets -- -D warnings",
+    "typecheck": "cargo check --all-targets",
+    "test": "cargo test",
+    "build": "cargo build --release -p soc-desk",
+    "audit": "cargo audit",
+    "run": "cargo run --release -p soc-desk -- --demo",
+    "release": "cargo build --release -p soc-desk && powershell -NoProfile -Command \"New-Item -ItemType Directory -Force $env:LOCALAPPDATA/Programs/gae | Out-Null; Copy-Item target/release/soc-desk.exe $env:LOCALAPPDATA/Programs/gae/soc-desk.exe -Force\""
+  }
+}

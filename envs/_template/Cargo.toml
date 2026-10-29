@@ -1,0 +1,15 @@
+[package]
+name = "gae-env-template"
+description = "GAE environment template: copy with tools/new-env.ps1, then edit domain.rs and source.rs."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "gae-env-template"
+path = "src/main.rs"
+
+[dependencies]
+gae-engine.workspace = true
+serde_json.workspace = true
+clap.workspace = true
